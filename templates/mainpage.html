@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURD project</title>
+    {% include 'cdnlines.html' %}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="bg-success text-center text-white">NTH Student Information</h3>
+                {% if students %}
+                <table class="table table-bordered">
+                    <thead class="bg-primary text-center text-white">
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email ID</th>
+                            <th>Mobile No</th>
+                            <th>Course</th>
+                            <th>Location</th>
+                            <th>A1</th>
+                            <th>A2</th>
+                            <th>A3</th>
+                            <th>A4</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                       
+                    <tbody class="bg-secondary text-center text-white">
+                        {% for student in students %}
+                        <tr>
+                            <td>{{student.id}}</td>
+                            <td>{{student.first_name}}</td>
+                            <td>{{student.last_name}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.mobile}}</td>
+                            <td>{{student.course}}</td>
+                            <td>{{student.location}}</td>
+                            <td>{{student.assignment1}}</td>
+                            <td>{{student.assignment2}}</td>
+                            <td>{{student.assignment3}}</td>
+                            <td>{{student.assignment4}}</td>
+                            <td>
+                                <a href="{% url 'update_data' student.id %}" class="btn btn-success btn-sm text-white badge-pill">Update</a>
+                                <a href="{% url 'delete_data' student.id %}" class="btn btn-danger btn-sm text-white badge-pill">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                {% else %}
+                <h3 class="bg-success text-center text-white">No data Available</h3>
+                {% endif %}
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <a href="{% url 'addstudent' %}" class="btn btn-lg btn-primary">Add Student</a>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

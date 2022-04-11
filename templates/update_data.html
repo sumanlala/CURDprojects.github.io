@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% include 'cdnlines.html' %}
+</head>
+<style>
+    input[name]{
+        margin-top: -10px;
+    }
+
+    input[value]{
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form action="{% url 'save_update_data' student.id %}" method="POST">
+                    {% csrf_token %}
+                    <label for="fname">Enter Your First Name</label>
+                    <input type="text" name="fname" value="{{student.first_name}}" class="form-control">
+
+                    <label for="lname">Enter Your Last Name</label>
+                    <input type="text" name="lname" value="{{student.last_name}}" class="form-control">
+
+                    <label for="email">Enter Your Email</label>
+                    <input type="email" name="email" value="{{student.email}}" class="form-control">
+
+                    <label for="mobile">Enter Your Mobile Number</label>
+                    <input type="number" name="mobile" value="{{student.mobile}}" class="form-control">
+
+                    <label for="course">Enter Your Course Name</label>
+                    <input type="text" name="course" value="{{student.course}}" class="form-control">
+
+                    <label for="location">Enter Your Location</label>
+                    <input type="text" name="location" value="{{student.location}}" class="form-control">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="assi1">Enter Your Assignment1 Marks</label>
+                            <input type="number" name="assi1" value="{{student.assignment1}}" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="assi2">Enter Your Assignment2 Marks</label>
+                            <input type="number" name="assi2" value="{{student.assignment2}}" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="assi3">Enter Your Assignment3 Marks</label>
+                            <input type="number" name="assi3" value="{{student.assignment3}}" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="assi4">Enter Your Assignment4 Marks</label>
+                            <input type="number" name="assi4" value="{{student.assignment4}}" class="form-control">
+                        </div>
+                    </div>
+
+                    <center>
+                        <input type="Submit" value="Save Changes" class="btn btn-success badge-pill btn-lg">
+                        <input type="Reset" value="Clear" class="btn btn-danger badge-pill btn-lg">
+                    </center>
+                    
+
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+    </div>
+</body>
+</html>
